@@ -53,5 +53,8 @@ direction = "right"
 button = 'd'
 
 $(document).ready(function(){
+    $(".getKey").keypress(function(){
+        $("showKey").text()
 
+    })
 });
