@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    /* background-color: red; */
+    width: 100%;
+    background-color: rgb(255, 100, 100);
+    height: 100vh;
+    position: fixed;
+    display: block;
+    /* opacity: 0; */
+    opacity: 0.5;
+}
+
+input[type=text]:focus {
+    background-color: blue;
+}
+
+#hidden {
+    position: fixed;
+}
+
+#alert {
+    background-color: gray;
+    width: 500px;
+    height: 300px;
+    margin: auto;
+}

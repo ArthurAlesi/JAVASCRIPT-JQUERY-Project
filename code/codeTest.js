@@ -8,4 +8,15 @@ $(document).ready(function() {
         console.log(x)
         $("#showKey").text(lastChar);
     });
+
+
+    $("#hidden").focus(function() {
+        window.alert(42)
+        console.log("alo mundo")
+            // $("#alert").hide();
+    });
+
+
+
+
 });

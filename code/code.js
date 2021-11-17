@@ -3,10 +3,11 @@
 
 function createBoard() {
     var num = 0;
-    for (var i = 1; i <= 50; i++) {
+    const sizeBoard = 25
+    for (var i = 1; i <= sizeBoard; i++) {
 
         $(".board").append(`<tr class="row" id="r${i}"></tr>`)
-        for (var j = 1; j <= 50; j++) {
+        for (var j = 1; j <= sizeBoard; j++) {
             $(`#r${i}`).append(`<td class="cell" id="col${i}${j}"></td>`)
                 // row_number=${i} col_number=${j}
                 // $(`#${i}${j}`).attr("rownumber",i)
