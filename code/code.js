@@ -1,5 +1,15 @@
 // functions 
 
+function changeApple() {
+    appleX = Math.floor(Math.random() * 25) + 1;
+    appleY = Math.floor(Math.random() * 25) + 1;
+
+    console.log("-=-=-=-=-=-=-=-=-=-=-=-=")
+    console.log(appleX)
+    console.log(appleY)
+    console.log("-=-=-=-=-=-=-=-=-=-=-=-=")
+}
+
 
 function createBoard() {
     var num = 0;
@@ -8,7 +18,7 @@ function createBoard() {
 
         $(".board").append(`<tr class="row" id="r${i}"></tr>`)
         for (var j = 1; j <= sizeBoard; j++) {
-            $(`#r${i}`).append(`<td class="cell" id="col${i}${j}"></td>`)
+            $(`#r${i}`).append(`<td class="cell" id="cell${i}${j}"></td>`)
                 // row_number=${i} col_number=${j}
                 // $(`#${i}${j}`).attr("rownumber",i)
                 // $(`#${i}${j}`).attr("colnumber",i)
@@ -33,20 +43,35 @@ function setSnake(snake, direction) {
 
 }
 
+function setApple(apple) {
+    let coordinateID = "cell" + apple[0] + apple[1]
+    console.log(coordinateID)
+
+    try {
+        console.log("aqui ta indo")
+            // $("#cell11").css("background", "red")
+        $("#" + coordinateID).attr("class", coordinateID + " apple")
+    } catch (e) {
+        console.log("deu erro na hora")
+    }
+
+}
 
 // create board
 
 $(document).ready(function() {
-    console.log("Ola mundo")
-    console.log("Ola mundo")
-    console.log("Ola mundo")
     createBoard()
 });
 
 // create snake
-snake = { "head": [25, 25] }
+snake = { "head": [1, 1] }
 
 // set apple
+apple = [1, 1]
+$(document).ready(function() {
+    setApple(apple)
+
+})
 
 // run game
 
