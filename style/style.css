@@ -15,10 +15,12 @@
 .board {
     border: solid 1px black;
     border-collapse: collapse;
-    opacity: 0.4;
+    /* opacity: 0.4; */
+    /* opacity: 0; */
     margin: auto;
     /* top: 50%; */
     /* transform: translate(0, -50%); */
+    pointer-events: none;
 }
 
 .row {}
@@ -42,16 +44,18 @@
 #getKey {
     /* background-color: red; */
     width: 100%;
-    background-color: rgb(255, 100, 100);
+    background-color: rgb(197, 197, 197);
     height: 100vh;
     position: fixed;
     display: block;
     /* opacity: 0; */
     opacity: 0.5;
+    /* opacity: 0; */
 }
 
 #getKey[type=text]:focus {
-    background-color: blue;
+    background-color: rgb(197, 197, 197);
+    opacity: 0;
 }
 
 #hidden {

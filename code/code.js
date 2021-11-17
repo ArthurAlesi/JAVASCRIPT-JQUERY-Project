@@ -66,9 +66,15 @@ $(document).ready(function() {
     // $("#hidden").focus
 
 
+    // TODO ITS BUGGING.
+    // GOTTA CORRECT LATER
     $("#getKey").focusout(function() {
         $("#alert").show();
         paused = true;
         console.log(paused)
     })
+
+    // $(".board").click(function() {
+    //     $("#getKey").focus();
+    // })
 });
