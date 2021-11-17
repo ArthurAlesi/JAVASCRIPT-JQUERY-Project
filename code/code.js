@@ -7,23 +7,23 @@ function createBoard() {
 
         $(".board").append(`<tr class="row" id="r${i}"></tr>`)
         for (var j = 1; j <= 50; j++) {
-            $(`#r${i}`).append(`<td class="cell" id="col${i}${j}"></td>`)    
-            // row_number=${i} col_number=${j}
-            // $(`#${i}${j}`).attr("rownumber",i)
-            // $(`#${i}${j}`).attr("colnumber",i)
+            $(`#r${i}`).append(`<td class="cell" id="col${i}${j}"></td>`)
+                // row_number=${i} col_number=${j}
+                // $(`#${i}${j}`).attr("rownumber",i)
+                // $(`#${i}${j}`).attr("colnumber",i)
         }
     }
     console.log("fim create board")
-  
-    
+
+
 
 }
 
 
-function setSnake(snake, direction){
+function setSnake(snake, direction) {
 
     let headFuture;
-    switch(direction){
+    switch (direction) {
 
         case "d" || "D":
 
@@ -43,7 +43,7 @@ $(document).ready(function() {
 });
 
 // create snake
-snake = {"head": [25,25]}
+snake = { "head": [25, 25] }
 
 // set apple
 
@@ -52,8 +52,8 @@ snake = {"head": [25,25]}
 direction = "right"
 button = 'd'
 
-$(document).ready(function(){
-    $(".getKey").keypress(function(){
+$(document).ready(function() {
+    $(".getKey").keypress(function() {
         $("showKey").text()
 
     })
