@@ -8,6 +8,16 @@ function changeApple() {
     console.log(appleX)
     console.log(appleY)
     console.log("-=-=-=-=-=-=-=-=-=-=-=-=")
+
+    let coordinateID = "cell" // + apple[0] + apple[1]
+    coordinateID += apple[0] < 10 ? "0" + apple[0] : apple[0]
+    coordinateID += apple[1] < 10 ? "0" + apple[1] : apple[1]
+
+    $("#" + coordinateID).attr("class", "cell")
+
+    apple = [appleX, appleY]
+    setApple(apple)
+
 }
 
 
@@ -18,7 +28,9 @@ function createBoard() {
 
         $(".board").append(`<tr class="row" id="r${i}"></tr>`)
         for (var j = 1; j <= sizeBoard; j++) {
-            $(`#r${i}`).append(`<td class="cell" id="cell${i}${j}"></td>`)
+            let iTemp = i < 10 ? "0" + i : i
+            let jTemp = j < 10 ? "0" + j : j
+            $(`#r${i}`).append(`<td class="cell" id="cell${iTemp}${jTemp}"></td>`)
                 // row_number=${i} col_number=${j}
                 // $(`#${i}${j}`).attr("rownumber",i)
                 // $(`#${i}${j}`).attr("colnumber",i)
@@ -44,8 +56,10 @@ function setSnake(snake, direction) {
 }
 
 function setApple(apple) {
-    let coordinateID = "cell" + apple[0] + apple[1]
-    console.log(coordinateID)
+    let coordinateID = "cell" // + apple[0] + apple[1]
+    coordinateID += apple[0] < 10 ? "0" + apple[0] : apple[0]
+    coordinateID += apple[1] < 10 ? "0" + apple[1] : apple[1]
+    console.log("cordinateid é " + coordinateID)
 
     try {
         console.log("aqui ta indo")
@@ -64,10 +78,10 @@ $(document).ready(function() {
 });
 
 // create snake
-snake = { "head": [1, 1] }
+snake = { "head": [25, 25] }
 
 // set apple
-apple = [1, 1]
+apple = [14, 18]
 $(document).ready(function() {
     setApple(apple)
 
