@@ -1,8 +1,12 @@
 //TODO refatorar o código no final
 
 // functions 
-function changeSnake(){
+function changeSnake(snake , direction) {
 
+    let snakeOld = snake;
+    for(var i in snakeOld){
+        console.log(snakeOld)
+    }
 
 }
 
@@ -94,7 +98,7 @@ function setSnake(snake, direction) {
     //         futureHead[1] -= 1;
     //         console.log("futureehad is " +  futureHead)
     //         for (var i in snake) {
-               
+
     //             // let coordinateID = "cell" // + apple[0] + apple[1]
     //             // coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
     //             // coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
@@ -129,13 +133,23 @@ function setSnake(snake, direction) {
 
     // }
 
-    // let coordinateID = "cell" // + apple[0] + apple[1]
-    // coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
-    // coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
-    // console.log("coordenada é " + coordinateID)
+    for (var i in snake) {
+
+                    let snakeBodyPart = ""
+                    if (i == "head") {
+                        snakeBodyPart = "head"
+                    } else {
+                        snakeBodyPart = "vertebra"
+                    }
+
+        let coordinateID = "cell" // + apple[0] + apple[1]
+        coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
+        coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
+        console.log("coordenada é " + coordinateID)
 
 
-    // $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
+        $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
+    }
 
 
 
