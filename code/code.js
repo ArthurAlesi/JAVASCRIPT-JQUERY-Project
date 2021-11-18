@@ -1,7 +1,10 @@
 //TODO refatorar o código no final
 
 // functions 
+function changeSnake(){
 
+
+}
 
 
 function changeApple() {
@@ -49,63 +52,82 @@ function createBoard() {
 
 function setSnake(snake, direction) {
 
-    let snakeBodyPartFuture = null;
-    switch (direction) {
+    // let snakeBodyPartFuture = null;
+    // let futureHead;
+    // switch (direction) {
 
 
-        case "d":
-        case "D":
+    //     case "d":
+    //     case "D":
 
-            sizeSnake = Object.keys(snake).length;
-            lastVertebra  = sizeSnake - 1
-            // newVertebra = "vertebra" + sizeSnake
+    //         futureHead = snake["head"]
+    //         futureHead[1] += 1;
+    //         console.log("futureehad is " +  futureHead)
+    //         // sizeSnake = Object.keys(snake).length;
+    //         // lastVertebra  = sizeSnake - 1
+    //         // newVertebra = "vertebra" + sizeSnake
 
-            // snake = Object.assign({newVertebra:snake[lastVertebra]}, snake);
-           
-            console.log("direita")
-            console.log()
-            // for(var i in snake){
+    //         // snake = Object.assign({newVertebra:snake[lastVertebra]}, snake);
 
-            //     let coordinateID = "cell" // + apple[0] + apple[1]
-            //     coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
-            //     coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
-            //     console.log("coordenada é " + coordinateID)
-                
-                
-            //     $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
-            // }
-            
+    //             console.log("direita")
+    //         console.log()
 
-            break;
-        case "w":
-        case "W":
-            break;
-        case "a":
-        case "A":
-            break;
-        case "s":
-        case "S":
-            break;
-        default:
-            for (var i in snake) {
-                let snakeBodyPart = ""
-                if (i == "head") {
-                    snakeBodyPart = "head"
-                } else {
-                    snakeBodyPart = "vertebra"
-                }
-                let coordinateID = "cell" // + apple[0] + apple[1]
-                coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
-                coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
-                console.log("coordenada é " + coordinateID)
+    //             // for(var i in snake){
+
+    //         //     let coordinateID = "cell" // + apple[0] + apple[1]
+    //         //     coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
+    //         //     coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
+    //         //     console.log("coordenada é " + coordinateID)
 
 
-                $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
+    //         //     $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
+    //         // }
 
-            }
+
+    //         break;
+    //     case "w":
+    //     case "W":
+    //         break;
+    //     case "a":
+    //     case "A":
+    //         futureHead = snake["head"]
+    //         futureHead[1] -= 1;
+    //         console.log("futureehad is " +  futureHead)
+    //         for (var i in snake) {
+               
+    //             // let coordinateID = "cell" // + apple[0] + apple[1]
+    //             // coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
+    //             // coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
+    //             // console.log("coordenada é " + coordinateID)
+    //             let coordinateID = "cell"
+
+    //             $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
+
+    //         }
+    //         break;
+    //     case "s":
+    //     case "S":
+    //         break;
+    //     default:
+    //         for (var i in snake) {
+    //             let snakeBodyPart = ""
+    //             if (i == "head") {
+    //                 snakeBodyPart = "head"
+    //             } else {
+    //                 snakeBodyPart = "vertebra"
+    //             }
+    //             let coordinateID = "cell" // + apple[0] + apple[1]
+    //             coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
+    //             coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
+    //             console.log("coordenada é " + coordinateID)
 
 
-    }
+    //             $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
+
+    //         }
+
+
+    // }
 
     // let coordinateID = "cell" // + apple[0] + apple[1]
     // coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
@@ -143,16 +165,16 @@ $(document).ready(function() {
 
 // create snake
 snake = {
-    "vertebra2": [14, 8],
-    "vertebra1": [14, 9],
-    "head": [14, 10]
+    "vertebra2": [14, 20],
+    "vertebra1": [14, 19],
+    "head": [14, 18]
 }
 $(document).ready(function() {
     setSnake(snake, direction)
 });
 
 // set apple
-apple = [14, 18]
+apple = [14, 8]
 $(document).ready(function() {
     setApple(apple)
 
