@@ -29,8 +29,8 @@
     height: 20px;
     width: 20px;
     /* background-color: blue; */
-    border: solid 1px rgb(122, 122, 122);
-    background-color: rgb(184, 184, 184);
+    border: solid 1px rgb(151, 151, 151);
+    background-color: rgb(219, 219, 219);
 }
 
 .cell:hover {
@@ -78,4 +78,12 @@
 .apple {
     background-color: red;
     /* border-radius: 5px; */
+}
+
+.head{
+    background-color: rgb(6, 49, 6);
+}
+
+.vertebra{
+    background-color: rgb(15, 87, 15);
 }

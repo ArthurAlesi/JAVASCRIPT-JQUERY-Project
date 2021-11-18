@@ -1,4 +1,8 @@
+//TODO refatorar o código no final
+
 // functions 
+
+
 
 function changeApple() {
     appleX = Math.floor(Math.random() * 25) + 1;
@@ -45,13 +49,49 @@ function createBoard() {
 
 function setSnake(snake, direction) {
 
-    let headFuture;
     switch (direction) {
 
-        case "d" || "D":
+
+        case "d":
+        case "D":
+            break;
+        case "w":
+        case "W":
+            break;
+        case "a":
+        case "A":
+            break;
+        case "s":
+        case "S":
+            break;
+        default:
+            for (var i in snake) {
+                let snakeBodyPart = ""
+                if (i == "head") {
+                    snakeBodyPart = "head"
+                } else {
+                    snakeBodyPart = "vertebra"
+                }
+                coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
+                coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
+                console.log("coordenada é " + coordinateID)
+
+
+                $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
+            }
 
 
     }
+
+    // let coordinateID = "cell" // + apple[0] + apple[1]
+    // coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
+    // coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
+    // console.log("coordenada é " + coordinateID)
+
+
+    // $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
+
+
 
 }
 
@@ -78,7 +118,14 @@ $(document).ready(function() {
 });
 
 // create snake
-snake = { "head": [25, 25] }
+snake = {
+    "head": [14, 10],
+    "vertebra1": [14, 9],
+    "vertebra2": [14, 8]
+}
+$(document).ready(function() {
+    setSnake(snake, direction)
+});
 
 // set apple
 apple = [14, 18]
@@ -89,7 +136,7 @@ $(document).ready(function() {
 
 // run game
 
-direction = "right"
+direction = null
 button = 'd'
 
 $(document).ready(function() {
