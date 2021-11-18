@@ -3,6 +3,7 @@
 // functions 
 function changeSnake(snake , direction) {
 
+    // TODO stoped here. gotta continue from here
     let snakeOld = snake;
     for(var i in snakeOld){
         console.log(snakeOld)
