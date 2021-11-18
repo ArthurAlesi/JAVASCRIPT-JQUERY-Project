@@ -49,11 +49,33 @@ function createBoard() {
 
 function setSnake(snake, direction) {
 
+    let snakeBodyPartFuture = null;
     switch (direction) {
 
 
         case "d":
         case "D":
+
+            sizeSnake = Object.keys(snake).length;
+            lastVertebra  = sizeSnake - 1
+            // newVertebra = "vertebra" + sizeSnake
+
+            // snake = Object.assign({newVertebra:snake[lastVertebra]}, snake);
+           
+            console.log("direita")
+            console.log()
+            // for(var i in snake){
+
+            //     let coordinateID = "cell" // + apple[0] + apple[1]
+            //     coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
+            //     coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
+            //     console.log("coordenada é " + coordinateID)
+                
+                
+            //     $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
+            // }
+            
+
             break;
         case "w":
         case "W":
@@ -72,12 +94,14 @@ function setSnake(snake, direction) {
                 } else {
                     snakeBodyPart = "vertebra"
                 }
+                let coordinateID = "cell" // + apple[0] + apple[1]
                 coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
                 coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
                 console.log("coordenada é " + coordinateID)
 
 
                 $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
+
             }
 
 
@@ -119,9 +143,9 @@ $(document).ready(function() {
 
 // create snake
 snake = {
-    "head": [14, 10],
+    "vertebra2": [14, 8],
     "vertebra1": [14, 9],
-    "vertebra2": [14, 8]
+    "head": [14, 10]
 }
 $(document).ready(function() {
     setSnake(snake, direction)
