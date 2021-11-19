@@ -1,12 +1,11 @@
 //TODO refatorar o código no final
 
 // functions 
-function changeSnake(snake, direction) {
 
-    // TODO stoped here. gotta continue from here
-    let snakeOld = snake;
+
+function eraseOldSnake(snakeOld){
     for (var i in snakeOld) {
-        console.log(snakeOld)
+       
 
 
         let coordinateID = "cell" // + apple[0] + apple[1]
@@ -15,6 +14,12 @@ function changeSnake(snake, direction) {
 
         $("#" + coordinateID).attr("class", "cell")
     }
+}
+function changeSnake(snake, direction) {
+
+    // TODO stoped here. gotta continue from here
+    let snakeOld = snake;
+    eraseOldSnake(snakeOld);
 
     console.log(snake)
     console.log("....")
