@@ -1,11 +1,14 @@
 //TODO refatorar o código no final
 
 // functions 
+function testar() {
+    console.log("testar")
+}
 
-
-function eraseOldSnake(snakeOld){
+function eraseOldSnake(snakeOld) {
+    console.log("erase old is working")
     for (var i in snakeOld) {
-       
+
         let coordinateID = "cell" // + apple[0] + apple[1]
         coordinateID += snakeOld[i][0] < 10 ? "0" + snakeOld[i][0] : snakeOld[i][0]
         coordinateID += snakeOld[i][1] < 10 ? "0" + snakeOld[i][1] : snakeOld[i][1]
@@ -13,9 +16,17 @@ function eraseOldSnake(snakeOld){
         $("#" + coordinateID).attr("class", "cell")
     }
 }
+
 function changeSnake(snake, direction) {
 
-    // TODO stoped here. gotta continue from here
+    console.log("1111111111111111")
+    console.log("2222222222222222")
+    console.log("3333333333333333")
+    console.log(snake)
+    console.log("1111111111111111")
+    console.log("2222222222222222")
+    console.log("3333333333333333")
+        // TODO stoped here. gotta continue from here
     let snakeOld = snake;
     eraseOldSnake(snakeOld);
 
@@ -23,22 +34,47 @@ function changeSnake(snake, direction) {
     console.log("....")
     console.log("....")
     console.log("....")
-    // console.log()
-    // console.log()
+        // console.log()
+        // console.log()
     let newSnake = Object.entries(snake)
     console.log(snake)
     console.log(newSnake)
-    //     // TODO we gotta calculate head´s new position somewhere where
-    let futureHead;
+        //     // TODO we gotta calculate head´s new position somewhere where
+    let futureHead = Array.from(snake.head);
     // console.log("+++++++++++++++++++++++" + newSnake) 
+    let x = 1;
+    let y = 0;
     switch (direction) {
 
+        case "d":
+        case "D":
+            // x = 0;
+            futureHead[x] = futureHead[x] + 1;
+            // console.log(futureHead)
+
+            break;
+        case "w":
+        case "W":
+            // futureHead
+            // y = 0;
+            futureHead[y] = futureHead[y] - 1
+                // console.log(futureHead)
+
+            break;
+        case "s":
+        case "S":
+            // futureHead
+            // y = 0;
+            futureHead[y] = futureHead[y] + 1
+                // console.log(futureHead)
+
+            break;
         case "a":
         case "A":
-            futureHead = Array.from(snake.head);
-            let x = 1;
+            // futureHead = Array.from(snake.head);
+            // x = 1;
             futureHead[x] = futureHead[x] - 1
-            // console.log(futureHead)
+                // console.log(futureHead)
 
             break;
 
@@ -58,14 +94,17 @@ function changeSnake(snake, direction) {
     }
 
     newSnake.pop()
-    
-    // // newSnake = Object.fromEntries(newSnake)
-    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
-    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
-    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
+
+    newSnake = Object.fromEntries(newSnake)
+        // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
+        // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
     console.log(newSnake)
 
-    setSnake(newSnake)
+    window.snake = newSnake
+    console.log("this.snake")
+    console.log(snake)
+    setSnake(window.snake)
 
 
 
@@ -239,7 +278,7 @@ $(document).ready(function() {
 });
 
 // create snake
-snake = {
+var snake = {
     "vertebra2": [14, 20],
     "vertebra1": [14, 19],
     "head": [14, 18],
