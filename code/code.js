@@ -18,9 +18,7 @@ function changeSnake(snake , direction) {
 
 
 
-    for(var i in snake){
-        
-    }
+   
 
 
 }
