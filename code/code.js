@@ -7,7 +7,21 @@ function changeSnake(snake , direction) {
     let snakeOld = snake;
     for(var i in snakeOld){
         console.log(snakeOld)
+
+
+        let coordinateID = "cell" // + apple[0] + apple[1]
+        coordinateID += snakeOld[i][0] < 10 ? "0" + snakeOld[i][0] : snakeOld[i][0]
+        coordinateID += snakeOld[i][1] < 10 ? "0" + snakeOld[i][1] : snakeOld[i][1]
+    
+        $("#" + coordinateID).attr("class", "cell")
     }
+
+
+
+    for(var i in snake){
+        
+    }
+
 
 }
 
