@@ -17,7 +17,7 @@ function runGame() {
             runGame()
         }
  
-    }, 150);
+    }, 50);
 }
 
 
