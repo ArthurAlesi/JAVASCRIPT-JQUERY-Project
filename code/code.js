@@ -1,6 +1,13 @@
 //TODO refatorar o código no final
 
 // functions 
+
+function getKey() {
+
+}
+
+
+
 function verifyAppleLocation() {
 
 }
@@ -29,8 +36,8 @@ function changeSnake(snake, direction) {
     eraseOldSnake(snakeOld);
 
     let newSnake = Object.entries(snake)
-    console.log(snake)
-    console.log(newSnake)
+    // console.log(snake)
+    // console.log(newSnake)
         //     // TODO we gotta calculate head´s new position somewhere where
     let futureHead = Array.from(snake.head);
     // console.log("+++++++++++++++++++++++" + newSnake) 
@@ -60,11 +67,11 @@ function changeSnake(snake, direction) {
             break;
 
     }
-    console.log(futureHead)
+    // console.log(futureHead)
 
 
     newSnake.push(["head", futureHead])
-    console.log(newSnake)
+    // console.log(newSnake)
 
     for (var i = 0; i < newSnake.length; i++) {
         if (i < newSnake.length - 1) {
@@ -77,8 +84,8 @@ function changeSnake(snake, direction) {
     newSnake = Object.fromEntries(newSnake)
 
     window.snake = newSnake
-    console.log("this.snake")
-    console.log(snake)
+    // console.log("this.snake")
+    // console.log(snake)
     setSnake(window.snake)
 
 }
@@ -88,10 +95,10 @@ function changeApple() {
     appleX = Math.floor(Math.random() * 25) + 1;
     appleY = Math.floor(Math.random() * 25) + 1;
 
-    console.log("-=-=-=-=-=-=-=-=-=-=-=-=")
-    console.log(appleX)
-    console.log(appleY)
-    console.log("-=-=-=-=-=-=-=-=-=-=-=-=")
+    // console.log("-=-=-=-=-=-=-=-=-=-=-=-=")
+    // console.log(appleX)
+    // console.log(appleY)
+    // console.log("-=-=-=-=-=-=-=-=-=-=-=-=")
 
     let coordinateID = "cell" // + apple[0] + apple[1]
     coordinateID += apple[0] < 10 ? "0" + apple[0] : apple[0]
@@ -118,7 +125,7 @@ function createBoard() {
 
         }
     }
-    console.log("fim create board")
+    // console.log("fim create board")
 
 }
 
@@ -138,7 +145,7 @@ function setSnake(snake, direction) {
         let coordinateID = "cell" // + apple[0] + apple[1]
         coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
         coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
-        console.log("coordenada é " + coordinateID)
+        // console.log("coordenada é " + coordinateID)
 
 
         $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
@@ -151,10 +158,10 @@ function setApple(apple) {
     let coordinateID = "cell" // + apple[0] + apple[1]
     coordinateID += apple[0] < 10 ? "0" + apple[0] : apple[0]
     coordinateID += apple[1] < 10 ? "0" + apple[1] : apple[1]
-    console.log("cordinateid é " + coordinateID)
+    // console.log("cordinateid é " + coordinateID)
 
     try {
-        console.log("aqui ta indo")
+        // console.log("aqui ta indo")
             // $("#cell11").css("background", "red")
         $("#" + coordinateID).attr("class", coordinateID + " apple")
     } catch (e) {
@@ -193,6 +200,19 @@ button = 'd'
 
 $(document).ready(function() {
 
+
+    $("#getKey").keyup(function() {
+        let inputText = $("#getKey").val();
+        let lastChar = inputText.slice(-1)
+        $("#getKey").val(lastChar)
+        // console.log(lastChar)
+        $("#showKey").text(lastChar);
+        changeSnake(snake, lastChar)
+    });
+
+
+
+
     $("#getKey").focus(function() {
         // window.alert(42)
         // console.log("alo mundo")
@@ -212,7 +232,8 @@ $(document).ready(function() {
         console.log(paused)
     })
 
-    // $(".board").click(function() {
-    //     $("#getKey").focus();
-    // })
+
+
+
+
 });
