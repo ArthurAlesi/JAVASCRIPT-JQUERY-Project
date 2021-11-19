@@ -2,13 +2,62 @@
 
 // functions 
 
+function runGame() {
+
+    setTimeout(function() {
+        // console.log("Hello");
+        if(!paused){
+            changeSnake(snake, direction)
+
+            // verify verifyIfSnakeEatAple
+            eatApple(verifyIfSnakeEatAple())
+            // if true, new apple position
+            // snake grows up
+
+            runGame()
+        }
+ 
+    }, 150);
+}
+
+
+function eatApple(eat) {
+
+    // console.log("eatApple is being calling")
+    if(eat){
+        // console.log("apple should be eaten now")
+        changeApple()
+    }else {
+        // console.log("XxxxxxXXXXXXXXXXXXXXXXXXXXxxxxxxxxxx")
+    }
+
+}
+
 function getKey() {
 
 }
 
+function addVertebra() {
+
+}
 
 
-function verifyAppleLocation() {
+function verifyIfSnakeEatAple() {
+
+    // get apple location
+
+    let appleLocation = Array.from(apple)
+    let headLocation =  Array.from(window.snake.head)
+    // console.log(appleLocation)
+    // console.log(headLocation)
+    // get head
+    if (appleLocation[0] == headLocation[0] &&appleLocation[1] == headLocation[1] ){
+        // console.log("sao iguais")
+        return true
+    } else {
+
+        return false
+    }
 
 }
 
@@ -29,6 +78,9 @@ function eraseOldSnake(snakeOld) {
     }
 }
 
+
+
+
 function changeSnake(snake, direction) {
 
     // TODO stoped here. gotta continue from here
@@ -36,8 +88,8 @@ function changeSnake(snake, direction) {
     eraseOldSnake(snakeOld);
 
     let newSnake = Object.entries(snake)
-    // console.log(snake)
-    // console.log(newSnake)
+        // console.log(snake)
+        // console.log(newSnake)
         //     // TODO we gotta calculate head´s new position somewhere where
     let futureHead = Array.from(snake.head);
     // console.log("+++++++++++++++++++++++" + newSnake) 
@@ -71,7 +123,7 @@ function changeSnake(snake, direction) {
 
 
     newSnake.push(["head", futureHead])
-    // console.log(newSnake)
+        // console.log(newSnake)
 
     for (var i = 0; i < newSnake.length; i++) {
         if (i < newSnake.length - 1) {
@@ -84,8 +136,8 @@ function changeSnake(snake, direction) {
     newSnake = Object.fromEntries(newSnake)
 
     window.snake = newSnake
-    // console.log("this.snake")
-    // console.log(snake)
+        // console.log("this.snake")
+        // console.log(snake)
     setSnake(window.snake)
 
 }
@@ -100,14 +152,19 @@ function changeApple() {
     // console.log(appleY)
     // console.log("-=-=-=-=-=-=-=-=-=-=-=-=")
 
-    let coordinateID = "cell" // + apple[0] + apple[1]
-    coordinateID += apple[0] < 10 ? "0" + apple[0] : apple[0]
-    coordinateID += apple[1] < 10 ? "0" + apple[1] : apple[1]
+    try{
+        let coordinateID = "cell" // + apple[0] + apple[1]
+        coordinateID += apple[0] < 10 ? "0" + apple[0] : apple[0]
+        coordinateID += apple[1] < 10 ? "0" + apple[1] : apple[1]
+    
+        $("#" + coordinateID).attr("class", "cell")
+    } catch(e){
 
-    $("#" + coordinateID).attr("class", "cell")
+    }
+ 
 
-    apple = [appleX, appleY]
-    setApple(apple)
+    window.apple = [appleX, appleY]
+    setApple(window.apple)
 
 }
 
@@ -145,7 +202,7 @@ function setSnake(snake, direction) {
         let coordinateID = "cell" // + apple[0] + apple[1]
         coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
         coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
-        // console.log("coordenada é " + coordinateID)
+            // console.log("coordenada é " + coordinateID)
 
 
         $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
@@ -158,11 +215,11 @@ function setApple(apple) {
     let coordinateID = "cell" // + apple[0] + apple[1]
     coordinateID += apple[0] < 10 ? "0" + apple[0] : apple[0]
     coordinateID += apple[1] < 10 ? "0" + apple[1] : apple[1]
-    // console.log("cordinateid é " + coordinateID)
+        // console.log("cordinateid é " + coordinateID)
 
     try {
         // console.log("aqui ta indo")
-            // $("#cell11").css("background", "red")
+        // $("#cell11").css("background", "red")
         $("#" + coordinateID).attr("class", coordinateID + " apple")
     } catch (e) {
         console.log("deu erro na hora")
@@ -195,19 +252,21 @@ $(document).ready(function() {
 
 // run game
 
-direction = null
+direction = "a"
 button = 'd'
+paused = true;
 
 $(document).ready(function() {
-
+ runGame()
 
     $("#getKey").keyup(function() {
         let inputText = $("#getKey").val();
         let lastChar = inputText.slice(-1)
         $("#getKey").val(lastChar)
-        // console.log(lastChar)
+            // console.log(lastChar)
         $("#showKey").text(lastChar);
-        changeSnake(snake, lastChar)
+        // changeSnake(snake, lastChar)
+        window.direction = lastChar;
     });
 
 
@@ -219,6 +278,7 @@ $(document).ready(function() {
         $("#alert").hide();
         paused = false;
         console.log(paused)
+        runGame()
     });
 
     // $("#hidden").focus
@@ -231,6 +291,7 @@ $(document).ready(function() {
         paused = true;
         console.log(paused)
     })
+
 
 
 
