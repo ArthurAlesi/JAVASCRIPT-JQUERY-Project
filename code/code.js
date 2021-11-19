@@ -1,24 +1,71 @@
 //TODO refatorar o código no final
 
 // functions 
-function changeSnake(snake , direction) {
+function changeSnake(snake, direction) {
 
     // TODO stoped here. gotta continue from here
     let snakeOld = snake;
-    for(var i in snakeOld){
+    for (var i in snakeOld) {
         console.log(snakeOld)
 
 
         let coordinateID = "cell" // + apple[0] + apple[1]
         coordinateID += snakeOld[i][0] < 10 ? "0" + snakeOld[i][0] : snakeOld[i][0]
         coordinateID += snakeOld[i][1] < 10 ? "0" + snakeOld[i][1] : snakeOld[i][1]
-    
+
         $("#" + coordinateID).attr("class", "cell")
     }
 
+    console.log(snake)
+    console.log("....")
+    console.log("....")
+    console.log("....")
+    // console.log()
+    // console.log()
+    let newSnake = Object.entries(snake)
+    console.log(newSnake)
+    //     // TODO we gotta calculate head´s new position somewhere where
+    // let futureHead;
+    // console.log("+++++++++++++++++++++++" + newSnake) 
+    // switch (direction) {
+
+    //     case "a":
+    //     case "A":
+    //         futureHead = snake.head;
+    //         let x = 1;
+    //         futureHead[x] = futureHead[x] - 1
+    //         console.log(futureHead)
+
+    //         break;
+
+    // }
 
 
-   
+    // // newSnake.push(newSnake[newSnake.length - 1])
+    // newSnake.push(["head", futureHead])
+
+
+    console.log(newSnake)
+    console.log("--------------------------")
+    console.log("--------------------------")
+    console.log(newSnake)
+
+
+    for (var i = 0; i < newSnake.length; i++) {
+        if (i < newSnake.length - 1) {
+            newSnake[i][1] = newSnake[i + 1][1]
+        }
+    }
+
+    // newSnake.pop()
+    
+    newSnake = Object.fromEntries(newSnake)
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
+    console.log(newSnake)
+
+
 
 
 }
@@ -148,12 +195,12 @@ function setSnake(snake, direction) {
 
     for (var i in snake) {
 
-                    let snakeBodyPart = ""
-                    if (i == "head") {
-                        snakeBodyPart = "head"
-                    } else {
-                        snakeBodyPart = "vertebra"
-                    }
+        let snakeBodyPart = ""
+        if (i == "head") {
+            snakeBodyPart = "head"
+        } else {
+            snakeBodyPart = "vertebra"
+        }
 
         let coordinateID = "cell" // + apple[0] + apple[1]
         coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
@@ -194,7 +241,7 @@ $(document).ready(function() {
 snake = {
     "vertebra2": [14, 20],
     "vertebra1": [14, 19],
-    "head": [14, 18]
+    "head": [14, 18],
 }
 $(document).ready(function() {
     setSnake(snake, direction)
