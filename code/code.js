@@ -6,8 +6,6 @@
 function eraseOldSnake(snakeOld){
     for (var i in snakeOld) {
        
-
-
         let coordinateID = "cell" // + apple[0] + apple[1]
         coordinateID += snakeOld[i][0] < 10 ? "0" + snakeOld[i][0] : snakeOld[i][0]
         coordinateID += snakeOld[i][1] < 10 ? "0" + snakeOld[i][1] : snakeOld[i][1]
@@ -28,32 +26,29 @@ function changeSnake(snake, direction) {
     // console.log()
     // console.log()
     let newSnake = Object.entries(snake)
+    console.log(snake)
     console.log(newSnake)
     //     // TODO we gotta calculate head´s new position somewhere where
-    // let futureHead;
+    let futureHead;
     // console.log("+++++++++++++++++++++++" + newSnake) 
-    // switch (direction) {
+    switch (direction) {
 
-    //     case "a":
-    //     case "A":
-    //         futureHead = snake.head;
-    //         let x = 1;
-    //         futureHead[x] = futureHead[x] - 1
-    //         console.log(futureHead)
+        case "a":
+        case "A":
+            futureHead = Array.from(snake.head);
+            let x = 1;
+            futureHead[x] = futureHead[x] - 1
+            // console.log(futureHead)
 
-    //         break;
+            break;
 
-    // }
-
+    }
+    console.log(futureHead)
 
     // // newSnake.push(newSnake[newSnake.length - 1])
-    // newSnake.push(["head", futureHead])
-
-
+    newSnake.push(["head", futureHead])
     console.log(newSnake)
-    console.log("--------------------------")
-    console.log("--------------------------")
-    console.log(newSnake)
+
 
 
     for (var i = 0; i < newSnake.length; i++) {
@@ -62,14 +57,15 @@ function changeSnake(snake, direction) {
         }
     }
 
-    // newSnake.pop()
+    newSnake.pop()
     
-    newSnake = Object.fromEntries(newSnake)
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
+    // // newSnake = Object.fromEntries(newSnake)
+    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
+    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
+    // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
     console.log(newSnake)
 
+    setSnake(newSnake)
 
 
 
