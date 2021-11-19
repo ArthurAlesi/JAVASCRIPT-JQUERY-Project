@@ -1,9 +1,14 @@
 //TODO refatorar o código no final
 
 // functions 
-function testar() {
-    console.log("testar")
+function verifyAppleLocation() {
+
 }
+
+function verifySnakeLocation() {
+
+}
+
 
 function eraseOldSnake(snakeOld) {
     console.log("erase old is working")
@@ -19,23 +24,10 @@ function eraseOldSnake(snakeOld) {
 
 function changeSnake(snake, direction) {
 
-    console.log("1111111111111111")
-    console.log("2222222222222222")
-    console.log("3333333333333333")
-    console.log(snake)
-    console.log("1111111111111111")
-    console.log("2222222222222222")
-    console.log("3333333333333333")
-        // TODO stoped here. gotta continue from here
+    // TODO stoped here. gotta continue from here
     let snakeOld = snake;
     eraseOldSnake(snakeOld);
 
-    console.log(snake)
-    console.log("....")
-    console.log("....")
-    console.log("....")
-        // console.log()
-        // console.log()
     let newSnake = Object.entries(snake)
     console.log(snake)
     console.log(newSnake)
@@ -48,44 +40,31 @@ function changeSnake(snake, direction) {
 
         case "d":
         case "D":
-            // x = 0;
             futureHead[x] = futureHead[x] + 1;
-            // console.log(futureHead)
-
             break;
         case "w":
         case "W":
-            // futureHead
-            // y = 0;
             futureHead[y] = futureHead[y] - 1
-                // console.log(futureHead)
 
             break;
         case "s":
         case "S":
-            // futureHead
-            // y = 0;
+
             futureHead[y] = futureHead[y] + 1
-                // console.log(futureHead)
 
             break;
         case "a":
         case "A":
-            // futureHead = Array.from(snake.head);
-            // x = 1;
-            futureHead[x] = futureHead[x] - 1
-                // console.log(futureHead)
 
+            futureHead[x] = futureHead[x] - 1
             break;
 
     }
     console.log(futureHead)
 
-    // // newSnake.push(newSnake[newSnake.length - 1])
+
     newSnake.push(["head", futureHead])
     console.log(newSnake)
-
-
 
     for (var i = 0; i < newSnake.length; i++) {
         if (i < newSnake.length - 1) {
@@ -96,17 +75,11 @@ function changeSnake(snake, direction) {
     newSnake.pop()
 
     newSnake = Object.fromEntries(newSnake)
-        // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
-        // console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>")
-    console.log(newSnake)
 
     window.snake = newSnake
     console.log("this.snake")
     console.log(snake)
     setSnake(window.snake)
-
-
 
 }
 
@@ -142,96 +115,16 @@ function createBoard() {
             let iTemp = i < 10 ? "0" + i : i
             let jTemp = j < 10 ? "0" + j : j
             $(`#r${i}`).append(`<td class="cell" id="cell${iTemp}${jTemp}"></td>`)
-                // row_number=${i} col_number=${j}
-                // $(`#${i}${j}`).attr("rownumber",i)
-                // $(`#${i}${j}`).attr("colnumber",i)
+
         }
     }
     console.log("fim create board")
-
-
 
 }
 
 
 function setSnake(snake, direction) {
 
-    // let snakeBodyPartFuture = null;
-    // let futureHead;
-    // switch (direction) {
-
-
-    //     case "d":
-    //     case "D":
-
-    //         futureHead = snake["head"]
-    //         futureHead[1] += 1;
-    //         console.log("futureehad is " +  futureHead)
-    //         // sizeSnake = Object.keys(snake).length;
-    //         // lastVertebra  = sizeSnake - 1
-    //         // newVertebra = "vertebra" + sizeSnake
-
-    //         // snake = Object.assign({newVertebra:snake[lastVertebra]}, snake);
-
-    //             console.log("direita")
-    //         console.log()
-
-    //             // for(var i in snake){
-
-    //         //     let coordinateID = "cell" // + apple[0] + apple[1]
-    //         //     coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
-    //         //     coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
-    //         //     console.log("coordenada é " + coordinateID)
-
-
-    //         //     $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
-    //         // }
-
-
-    //         break;
-    //     case "w":
-    //     case "W":
-    //         break;
-    //     case "a":
-    //     case "A":
-    //         futureHead = snake["head"]
-    //         futureHead[1] -= 1;
-    //         console.log("futureehad is " +  futureHead)
-    //         for (var i in snake) {
-
-    //             // let coordinateID = "cell" // + apple[0] + apple[1]
-    //             // coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
-    //             // coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
-    //             // console.log("coordenada é " + coordinateID)
-    //             let coordinateID = "cell"
-
-    //             $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
-
-    //         }
-    //         break;
-    //     case "s":
-    //     case "S":
-    //         break;
-    //     default:
-    //         for (var i in snake) {
-    //             let snakeBodyPart = ""
-    //             if (i == "head") {
-    //                 snakeBodyPart = "head"
-    //             } else {
-    //                 snakeBodyPart = "vertebra"
-    //             }
-    //             let coordinateID = "cell" // + apple[0] + apple[1]
-    //             coordinateID += snake[i][0] < 10 ? "0" + snake[i][0] : snake[i][0]
-    //             coordinateID += snake[i][1] < 10 ? "0" + snake[i][1] : snake[i][1]
-    //             console.log("coordenada é " + coordinateID)
-
-
-    //             $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
-
-    //         }
-
-
-    // }
 
     for (var i in snake) {
 
@@ -251,9 +144,8 @@ function setSnake(snake, direction) {
         $("#" + coordinateID).attr("class", "cell" + " " + snakeBodyPart)
     }
 
-
-
 }
+
 
 function setApple(apple) {
     let coordinateID = "cell" // + apple[0] + apple[1]
