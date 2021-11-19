@@ -267,6 +267,18 @@ $(document).ready(function() {
         $("#showKey").text(lastChar);
         // changeSnake(snake, lastChar)
         window.direction = lastChar;
+        // if(lastChar == "p"){
+        //     if(!paused){
+        //         $("#alert").show();
+        //         paused = true;
+        //         $("#getKey").focusout()
+
+        //     }
+        // }
+        // if(!paused){
+        //     window.direction = "d"
+        //     runGame()
+        // }
     });
 
 
