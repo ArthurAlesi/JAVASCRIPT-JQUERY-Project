@@ -2,7 +2,7 @@ console.log("hello world")
 
 $(document).ready(function() {
     let paused = true;
-    $("#getKey").keyup(function() {
+    $("#getKey").keydown(function() {
         let x = $("#getKey").val();
         let lastChar = x.slice(-1)
         $("#getKey").val(lastChar)
