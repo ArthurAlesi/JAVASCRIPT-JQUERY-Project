@@ -2,21 +2,21 @@
 
 // functions 
 
-function restartGame(){
+function restartGame() {
 
 }
 
-function loseGame(){
+function loseGame() {
 
     console.log("you lost the game")
     $("#alert").text("You lost")
     $("#alert").show()
 }
 
-function verifyIfSnakeIsOutOfBoard(){
-   
+function verifyIfSnakeIsOutOfBoard() {
 
-    if(snake.head[0] <= 0 || snake.head[0] >25 || snake.head[1] <= 0 || snake.head[1] > 25){
+
+    if (snake.head[0] <= 0 || snake.head[0] > 25 || snake.head[1] <= 0 || snake.head[1] > 25) {
         return true;
     }
 }
@@ -27,24 +27,24 @@ function runGame() {
         if (!paused) {
             eatApple(verifyIfSnakeEatAple())
 
-            if(!verifyIfKillItself()){
+            if (verifyIfKillItself() || verifyIfSnakeIsOutOfBoard()) {
 
+
+                loseGame();
+            } else {
                 changeSnake(snake, button)
-
-            } else {
-                loseGame();
-            }
-
-            if(verifyIfSnakeIsOutOfBoard()){
-                loseGame();
-                
-            } else {
-                
                 runGame()
             }
-                // verify verifyIfSnakeEatAple
-                // if true, new apple position
-                // snake grows up
+
+            // if(verifyIfSnakeIsOutOfBoard()){
+            //     loseGame();
+
+            // } else {
+
+            // }
+            // verify verifyIfSnakeEatAple
+            // if true, new apple position
+            // snake grows up
 
         }
 
@@ -56,8 +56,7 @@ function eatApple(eat) {
     if (eat) {
         changeApple()
         addVertebra()
-    } else {
-    }
+    } else {}
 
 }
 
@@ -68,17 +67,17 @@ function getKey() {
 function addVertebra() {
 
     let newSnake = Object.entries(snake)
-    // console.log(newSnake)
+        // console.log(newSnake)
     lenSnake = newSnake.length
     newVertebraKey = "vertebra" + lenSnake
     newVertebraPosition = snake["vertebra" + (lenSnake - 1)]
-    // console.log(newVertebraPosition)
+        // console.log(newVertebraPosition)
 
     newSnake.unshift([newVertebraKey, [newVertebraPosition]])
     newSnake = Object.fromEntries(newSnake)
 
     window.snake = newSnake
-    // console.log(newSnake)
+        // console.log(newSnake)
 }
 
 
@@ -89,7 +88,7 @@ function verifyIfSnakeEatAple() {
     let appleLocation = Array.from(apple)
     let headLocation = Array.from(window.snake.head)
     if (appleLocation[0] == headLocation[0] && appleLocation[1] == headLocation[1]) {
-       
+
         return true
     } else {
 
@@ -106,8 +105,8 @@ function verifyIfKillItself() {
     let snakeHead = Array.from(snake.head);
 
     for (var vertebra = 0; vertebra < lenSnake - 1; vertebra++) {
-      
-        if(snakeHead[0] == ArraySnake[vertebra][1][0] && snakeHead[1] == ArraySnake[vertebra][1][1]){
+
+        if (snakeHead[0] == ArraySnake[vertebra][1][0] && snakeHead[1] == ArraySnake[vertebra][1][1]) {
 
 
             kill = true;
@@ -171,7 +170,7 @@ function changeSnake(snake, button) {
     }
 
     newSnake.push(["head", futureHead])
- 
+
 
     for (var i = 0; i < newSnake.length; i++) {
         if (i < newSnake.length - 1) {
@@ -307,10 +306,10 @@ $(document).ready(function() {
         let inputText = $("#getKey").val();
         let lastChar = inputText.slice(-1)
 
-        if(direction == "vertical" &&(lastChar == "a" || lastChar == "d")){
+        if (direction == "vertical" && (lastChar == "a" || lastChar == "d")) {
             window.direction = "horizontal"
             window.button = lastChar;
-        } else if (direction == "horizontal" &&(lastChar == "w" || lastChar == "s")){
+        } else if (direction == "horizontal" && (lastChar == "w" || lastChar == "s")) {
             window.direction = "vertical"
             window.button = lastChar;
         }
@@ -338,7 +337,7 @@ $(document).ready(function() {
     $("#getKey").focusout(function() {
         $("#alert").show();
         paused = true;
-        
+
     })
 
 
