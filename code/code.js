@@ -2,6 +2,22 @@
 
 // functions 
 
+function restartGame(){
+
+}
+
+function loseGame(){
+
+}
+
+function verifyIfSnakeIsOutOfBoard(){
+   
+
+    if(snake.head[0] <= 0 || snake.head[0] >=50|| snake.head[1] <= 0 || snake.head[1] >= 50){
+        return true;
+    }
+}
+
 function runGame() {
 
     setTimeout(function() {
@@ -12,12 +28,21 @@ function runGame() {
 
                 changeSnake(snake, button)
 
+            } else {
+                loseGame();
+            }
+
+            if(verifyIfSnakeIsOutOfBoard()){
+                loseGame();
+                
+            } else {
+                
+                runGame()
             }
                 // verify verifyIfSnakeEatAple
                 // if true, new apple position
                 // snake grows up
 
-            runGame()
         }
 
     }, 100);
