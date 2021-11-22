@@ -8,12 +8,15 @@ function restartGame(){
 
 function loseGame(){
 
+    console.log("you lost the game")
+    $("#alert").text("You lost")
+    $("#alert").show()
 }
 
 function verifyIfSnakeIsOutOfBoard(){
    
 
-    if(snake.head[0] <= 0 || snake.head[0] >=50|| snake.head[1] <= 0 || snake.head[1] >= 50){
+    if(snake.head[0] <= 0 || snake.head[0] >25 || snake.head[1] <= 0 || snake.head[1] > 25){
         return true;
     }
 }
