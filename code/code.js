@@ -7,10 +7,10 @@ function runGame() {
     setTimeout(function() {
         // console.log("Hello");
         if(!paused){
-            changeSnake(snake, direction)
-
-            // verify verifyIfSnakeEatAple
             eatApple(verifyIfSnakeEatAple())
+            
+            changeSnake(snake, direction)
+            // verify verifyIfSnakeEatAple
             // if true, new apple position
             // snake grows up
 
@@ -27,6 +27,7 @@ function eatApple(eat) {
     if(eat){
         // console.log("apple should be eaten now")
         changeApple()
+        addVertebra()
     }else {
         // console.log("XxxxxxXXXXXXXXXXXXXXXXXXXXxxxxxxxxxx")
     }
@@ -39,6 +40,21 @@ function getKey() {
 
 function addVertebra() {
 
+    let newSnake =  Object.entries(snake)
+    console.log(" >>>>")
+    console.log(" >>>>")
+    console.log(" >>>>")
+    console.log(newSnake)
+    lenSnake = newSnake.length
+    newVertebraKey = "vertebra" + lenSnake
+    newVertebraPosition = snake["vertebra" + (lenSnake - 1)]
+    console.log(newVertebraPosition)
+
+    newSnake.unshift([newVertebraKey,[newVertebraPosition]])
+    newSnake = Object.fromEntries(newSnake)
+
+    window.snake = newSnake
+    console.log(newSnake)
 }
 
 
@@ -62,6 +78,7 @@ function verifyIfSnakeEatAple() {
 }
 
 function verifySnakeLocation() {
+
 
 }
 
