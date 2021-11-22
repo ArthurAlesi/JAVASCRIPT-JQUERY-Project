@@ -5,7 +5,6 @@
 function runGame() {
 
     setTimeout(function() {
-        // console.log("Hello");
         if (!paused) {
             eatApple(verifyIfSnakeEatAple())
 
@@ -26,14 +25,10 @@ function runGame() {
 
 
 function eatApple(eat) {
-
-    // console.log("eatApple is being calling")
     if (eat) {
-        // console.log("apple should be eaten now")
         changeApple()
         addVertebra()
     } else {
-        // console.log("XxxxxxXXXXXXXXXXXXXXXXXXXXxxxxxxxxxx")
     }
 
 }
@@ -45,20 +40,17 @@ function getKey() {
 function addVertebra() {
 
     let newSnake = Object.entries(snake)
-    console.log(" >>>>")
-    console.log(" >>>>")
-    console.log(" >>>>")
-    console.log(newSnake)
+    // console.log(newSnake)
     lenSnake = newSnake.length
     newVertebraKey = "vertebra" + lenSnake
     newVertebraPosition = snake["vertebra" + (lenSnake - 1)]
-    console.log(newVertebraPosition)
+    // console.log(newVertebraPosition)
 
     newSnake.unshift([newVertebraKey, [newVertebraPosition]])
     newSnake = Object.fromEntries(newSnake)
 
     window.snake = newSnake
-    console.log(newSnake)
+    // console.log(newSnake)
 }
 
 
@@ -68,11 +60,8 @@ function verifyIfSnakeEatAple() {
 
     let appleLocation = Array.from(apple)
     let headLocation = Array.from(window.snake.head)
-        // console.log(appleLocation)
-        // console.log(headLocation)
-        // get head
     if (appleLocation[0] == headLocation[0] && appleLocation[1] == headLocation[1]) {
-        // console.log("sao iguais")
+       
         return true
     } else {
 
@@ -87,34 +76,22 @@ function verifyIfKillItself() {
     let ArraySnake = Object.entries(snake)
     let lenSnake = ArraySnake.length
     let snakeHead = Array.from(snake.head);
-    // console.log("****************")
-    // console.log(snakeHead)
-    // console.log(ArraySnake)
+
     for (var vertebra = 0; vertebra < lenSnake - 1; vertebra++) {
       
         if(snakeHead[0] == ArraySnake[vertebra][1][0] && snakeHead[1] == ArraySnake[vertebra][1][1]){
 
-            
 
-            console.log(">>>>>>>>>>  é igual")
-            console.log(">>>>>>>>>>  é igual")
-            console.log(">>>>>>>>>>  é igual")
-            console.log(">>>>>>>>>>  é igual")
-            console.log(">>>>>>>>>>  é igual")
-            console.log(">>>>>>>>>>  é igual")
-            console.log(">>>>>>>>>>  é igual")
             kill = true;
             return kill
         }
     }
-
 
     return kill
 }
 
 
 function eraseOldSnake(snakeOld) {
-    console.log("erase old is working")
     for (var i in snakeOld) {
 
         let coordinateID = "cell" // + apple[0] + apple[1]
@@ -135,9 +112,7 @@ function changeSnake(snake, button) {
     eraseOldSnake(snakeOld);
 
     let newSnake = Object.entries(snake)
-        // console.log(snake)
-        // console.log(newSnake)
-        //     // TODO we gotta calculate head´s new position somewhere where
+
     let futureHead = Array.from(snake.head);
     // console.log("+++++++++++++++++++++++" + newSnake) 
     let x = 1;
@@ -166,11 +141,9 @@ function changeSnake(snake, button) {
             break;
 
     }
-    // console.log(futureHead)
-
 
     newSnake.push(["head", futureHead])
-        // console.log(newSnake)
+ 
 
     for (var i = 0; i < newSnake.length; i++) {
         if (i < newSnake.length - 1) {
@@ -183,8 +156,7 @@ function changeSnake(snake, button) {
     newSnake = Object.fromEntries(newSnake)
 
     window.snake = newSnake
-        // console.log("this.snake")
-        // console.log(snake)
+
     setSnake(window.snake)
 
 }
@@ -262,11 +234,10 @@ function setApple(apple) {
     let coordinateID = "cell" // + apple[0] + apple[1]
     coordinateID += apple[0] < 10 ? "0" + apple[0] : apple[0]
     coordinateID += apple[1] < 10 ? "0" + apple[1] : apple[1]
-        // console.log("cordinateid é " + coordinateID)
+
 
     try {
-        // console.log("aqui ta indo")
-        // $("#cell11").css("background", "red")
+
         $("#" + coordinateID).attr("class", coordinateID + " apple")
     } catch (e) {
         console.log("deu erro na hora")
