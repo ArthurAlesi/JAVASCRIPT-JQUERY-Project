@@ -166,10 +166,7 @@ function changeApple() {
     appleX = Math.floor(Math.random() * 25) + 1;
     appleY = Math.floor(Math.random() * 25) + 1;
 
-    // console.log("-=-=-=-=-=-=-=-=-=-=-=-=")
-    // console.log(appleX)
-    // console.log(appleY)
-    // console.log("-=-=-=-=-=-=-=-=-=-=-=-=")
+
 
     try {
         let coordinateID = "cell" // + apple[0] + apple[1]
@@ -292,32 +289,16 @@ $(document).ready(function() {
 
 
         $("#getKey").val(lastChar)
-            // console.log(lastChar)
-        // $("#showKey").text(lastChar);
-        // changeSnake(snake, lastChar)
-        // if(lastChar == "p"){
-        //     if(!paused){
-        //         $("#alert").show();
-        //         paused = true;
-        //         $("#getKey").focusout()
 
-        //     }
-        // }
-        // if(!paused){
-        //     window.button = "d"
-        //     runGame()
-        // }
     });
 
 
 
 
     $("#getKey").focus(function() {
-        // window.alert(42)
-        // console.log("alo mundo")
+
         $("#alert").hide();
         paused = false;
-        console.log(paused)
         runGame()
     });
 
@@ -329,7 +310,7 @@ $(document).ready(function() {
     $("#getKey").focusout(function() {
         $("#alert").show();
         paused = true;
-        console.log(paused)
+        
     })
 
 
