@@ -69,9 +69,6 @@ function eatApple(eat) {
         score += 1;
         size += 1;
         qtdEaten +=1 ;
-        // console.log("score: " + score)
-        // console.log("size: " + size)
-        // console.log("qtd Eaten: " + qtdEate
         changeApple()
         addVertebra()
     } else {}
