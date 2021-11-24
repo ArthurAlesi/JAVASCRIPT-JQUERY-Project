@@ -53,29 +53,13 @@ function runGame() {
     setTimeout(function() {
         if (!paused) {
             eatApple(verifyIfSnakeEatAple())
-
-
             if (verifyIfKillItself() || verifyIfSnakeIsOutOfBoard()) {
-
-
                 loseGame();
             } else {
                 changeSnake(snake, button)
                 runGame()
             }
-
-            // if(verifyIfSnakeIsOutOfBoard()){
-            //     loseGame();
-
-            // } else {
-
-            // }
-            // verify verifyIfSnakeEatAple
-            // if true, new apple position
-            // snake grows up
-
         }
-
     }, 100);
 }
 
@@ -87,8 +71,7 @@ function eatApple(eat) {
         qtdEaten +=1 ;
         // console.log("score: " + score)
         // console.log("size: " + size)
-        // console.log("qtd Eaten: " + qtdEaten )
-
+        // console.log("qtd Eaten: " + qtdEate
         changeApple()
         addVertebra()
     } else {}
@@ -349,7 +332,7 @@ $(document).ready(function() {
 // run game
 
 var score = 0;
-var size = 3;
+var size = 0;
 var qtdEaten = 0;
 button = "a"
 direction = 'horizontal'
