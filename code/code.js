@@ -1,6 +1,9 @@
 //TODO refatorar o código no final
 
 // functions 
+function saveScore(){
+
+}
 
 function restartGame() {
 
@@ -58,9 +61,10 @@ function eatApple(eat) {
         score += 1;
         size += 1;
         qtdEaten +=1 ;
-        console.log("score: " + score)
-        console.log("size: " + size)
-        console.log("qtd Eaten: " + qtdEaten )
+        // console.log("score: " + score)
+        // console.log("size: " + size)
+        // console.log("qtd Eaten: " + qtdEaten )
+
         changeApple()
         addVertebra()
     } else {}
@@ -303,8 +307,8 @@ $(document).ready(function() {
 
 // create snake
 var snake = {
-    "vertebra2": [14, 20],
-    "vertebra1": [14, 19],
+    // "vertebra2": [14, 20],
+    // "vertebra1": [14, 19],
     "head": [14, 18],
 }
 $(document).ready(function() {
