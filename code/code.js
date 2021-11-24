@@ -9,6 +9,30 @@ function restartGame() {
 
 }
 
+function playGame(){
+    $("#alert").hide();
+    paused = false;
+    runGame()
+}
+
+
+function pauseGame(){
+    $(document).ready(function(){
+        $("#alert").text("")
+        // $("#alert")= $("#alert")
+        $("#alert").append("<h2 id='pausedTitle'>PAUSED</h2>")
+        // document.getElementById("alert").appendChild("<p>fasfdafsa</p>")
+        $("#alert").append("<p>click on the screen to return the game</p>")
+        // alert.
+        $("#alert").show();
+        console.log($("#alert").append())
+        paused = true;
+    })
+
+
+}
+ 
+
 function loseGame() {
 
     console.log("you lost the game")
@@ -355,21 +379,17 @@ $(document).ready(function() {
 
 
     $("#getKey").focus(function() {
-
-        $("#alert").hide();
-        paused = false;
-        runGame()
+        playGame()
+   
     });
 
     // $("#hidden").focus
 
 
-    // TODO ITS BUGGING.
-    // GOTTA CORRECT LATER
     $("#getKey").focusout(function() {
-        $("#alert").show();
-        paused = true;
-
+        // $("#alert").show();
+        // paused = true;
+        pauseGame();
     })
 
 
