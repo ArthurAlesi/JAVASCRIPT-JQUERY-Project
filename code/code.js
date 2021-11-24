@@ -27,6 +27,7 @@ function runGame() {
         if (!paused) {
             eatApple(verifyIfSnakeEatAple())
 
+
             if (verifyIfKillItself() || verifyIfSnakeIsOutOfBoard()) {
 
 
@@ -54,6 +55,12 @@ function runGame() {
 
 function eatApple(eat) {
     if (eat) {
+        score += 1;
+        size += 1;
+        qtdEaten +=1 ;
+        console.log("score: " + score)
+        console.log("size: " + size)
+        console.log("qtd Eaten: " + qtdEaten )
         changeApple()
         addVertebra()
     } else {}
@@ -207,7 +214,13 @@ function changeApple() {
 
 
     window.apple = [appleX, appleY]
-    setApple(window.apple)
+    if (verify_If_Apple_Is_In_Snake()) {
+        console.log("apple is in snake")
+        changeApple()
+    } else {
+
+        setApple(window.apple)
+    }
 
 }
 
@@ -253,6 +266,19 @@ function setSnake(snake, button) {
 
 }
 
+function verify_If_Apple_Is_In_Snake() {
+    isInSnake = false;
+
+    for (var i in snake) {
+        if (window.apple[0] == snake[i][0] && window.apple[i] == snake[i][i]) {
+            isInSnake = true;
+            break;
+        }
+    }
+
+    return isInSnake;
+
+}
 
 function setApple(apple) {
     let coordinateID = "cell" // + apple[0] + apple[1]
@@ -294,7 +320,9 @@ $(document).ready(function() {
 
 // run game
 
-
+var score = 0;
+var size = 3;
+var qtdEaten = 0;
 button = "a"
 direction = 'horizontal'
 paused = true;
