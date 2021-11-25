@@ -3,11 +3,9 @@
 // functions 
 // TODO implementar save score  and showScore()
 function saveScore() {
-
 }
 
 function showScore(){
-
 }
 
 // TODO implementar funcao para reiniciar o jogo
