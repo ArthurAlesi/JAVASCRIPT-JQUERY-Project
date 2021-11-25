@@ -1,10 +1,16 @@
 //TODO refatorar o código no final
 
 // functions 
+// TODO implementar save score  and showScore()
 function saveScore() {
 
 }
 
+function showScore(){
+
+}
+
+// TODO implementar funcao para reiniciar o jogo
 function restartGame() {
 
 }
@@ -52,7 +58,8 @@ function runGame() {
     setTimeout(function() {
         if (!paused) {
             eatApple(verifyIfSnakeEatAple())
-            if (verifyIfKillItself() || verifyIfSnakeIsOutOfBoard()) {
+            if (verify_If_Snake_kill_itself
+            () || verifyIfSnakeIsOutOfBoard()) {
                 loseGame();
             } else {
                 changeSnake(snake, button)
@@ -99,7 +106,7 @@ function addVertebra() {
 
 function verifyIfSnakeEatAple() {
 
-    // get apple location
+    // get apple´s location
     let appleLocation = Array.from(apple)
     let headLocation = Array.from(window.snake.head)
     if (appleLocation[0] == headLocation[0] && appleLocation[1] == headLocation[1]) {
@@ -110,8 +117,8 @@ function verifyIfSnakeEatAple() {
 }
 
 
-
-function verifyIfKillItself() {
+// verifyIfKillItself
+function verify_If_Snake_kill_itself() {
 
     let kill = false;
     let ArraySnake = Object.entries(snake)
@@ -152,8 +159,8 @@ function changeSnake(snake, button) {
     let futureHead = Array.from(snake.head);
     let x = 1;
     let y = 0;
-    switch (button) {
 
+    switch (button) {
         case "d":
         case "D":
             futureHead[x] = futureHead[x] + 1;
@@ -191,6 +198,7 @@ function changeSnake(snake, button) {
 
 
 
+
 function changeApple() {
     appleX = Math.floor(Math.random() * 25) + 1;
     appleY = Math.floor(Math.random() * 25) + 1;
@@ -217,7 +225,6 @@ function changeApple() {
 
 
 function createBoard() {
-    var num = 0;
     const sizeBoard = 25
     for (var i = 1; i <= sizeBoard; i++) {
 
@@ -229,6 +236,7 @@ function createBoard() {
         }
     }
 }
+
 
 
 
@@ -276,27 +284,32 @@ function setApple(apple) {
     }
 }
 
-// create board
+
+
+
+
+
+// create board on html ----------------------------------------------------
 
 $(document).ready(function() {
     createBoard()
 });
 
-// create snake
+// create snake when 
 var snake = {
     // "vertebra2": [14, 20],
     // "vertebra1": [14, 19],
     "head": [14, 18],
 }
+
 $(document).ready(function() {
     setSnake(snake, button)
 });
 
-// set apple
+// set apple when  load  page
 apple = [14, 8]
 $(document).ready(function() {
     setApple(apple)
-
 })
 
 // RUN GAME  =======================================================
@@ -337,7 +350,7 @@ $(document).ready(function() {
 
 
     // FOCUS:
-    // RUN GAME WHEN CLICKED ON THE SCRENN
+    // IT RUNS GAME WHEN CLICKED ON THE SCREEN
     $("#getKey").focus(function() {
         playGame()
     });
