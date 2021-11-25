@@ -143,7 +143,7 @@ function eraseOldSnake(snakeOld) {
 
 
 
-
+//TODO change function name to change_snake_position
 function changeSnake(snake, button) {
 
     let snakeOld = snake;
