@@ -2,11 +2,9 @@
 
 // functions 
 // TODO implementar save score  and showScore()
-function saveScore() {
-}
+function saveScore() {}
 
-function showScore(){
-}
+function showScore() {}
 
 // TODO implementar funcao para reiniciar o jogo
 function restartGame() {
@@ -56,8 +54,7 @@ function runGame() {
     setTimeout(function() {
         if (!paused) {
             eatApple(verifyIfSnakeEatAple())
-            if (verify_If_Snake_kill_itself
-            () || verifyIfSnakeIsOutOfBoard()) {
+            if (verify_If_Snake_kill_itself() || verifyIfSnakeIsOutOfBoard()) {
                 loseGame();
             } else {
                 changeSnake(snake, button)
@@ -73,7 +70,7 @@ function eatApple(eat) {
     if (eat) {
         score += 1;
         size += 1;
-        qtdEaten += 1;
+        // qtdEaten += 1;
         changeApple()
         addVertebra()
     } else {}
