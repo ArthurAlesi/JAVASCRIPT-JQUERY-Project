@@ -25,7 +25,7 @@ function pauseGame() {
         $("#alert").append("<h2 id='pausedTitle'>PAUSED</h2>")
         $("#alert").append("<p>click on the screen to return the game</p>")
         $("#alert").show();
-        console.log($("#alert").append())
+        // console.log($("#alert").append())
         paused = true;
     })
 }
@@ -42,7 +42,7 @@ function loseGame() {
 
 
 
-function verifyIfSnakeIsOutOfBoard() {
+function verify_If_Snake_Is_Out_Of_Board() {
     if (snake.head[0] <= 0 || snake.head[0] > 25 || snake.head[1] <= 0 || snake.head[1] > 25) {
         return true;
     }
@@ -53,8 +53,8 @@ function verifyIfSnakeIsOutOfBoard() {
 function runGame() {
     setTimeout(function() {
         if (!paused) {
-            eatApple(verifyIfSnakeEatAple())
-            if (verify_If_Snake_kill_itself() || verifyIfSnakeIsOutOfBoard()) {
+            eatApple(verify_If_Snake_Eat_Aple())
+            if (verify_If_Snake_kill_itself() || verify_If_Snake_Is_Out_Of_Board()) {
                 loseGame();
             } else {
                 changeSnake(snake, button)
@@ -99,11 +99,12 @@ function addVertebra() {
 
 
 
-function verifyIfSnakeEatAple() {
+function verify_If_Snake_Eat_Aple() {
 
     // get apple´s location
     let appleLocation = Array.from(apple)
     let headLocation = Array.from(window.snake.head)
+    // check if apple and snake's head are the same
     if (appleLocation[0] == headLocation[0] && appleLocation[1] == headLocation[1]) {
         return true
     } else {
@@ -131,7 +132,8 @@ function verify_If_Snake_kill_itself() {
 
 
 
-
+// This function is used to "erase" snake body on html before set a new snake.
+// it is part of the animation of the snake
 function eraseOldSnake(snakeOld) {
     for (var i in snakeOld) {
         let coordinateID = "cell" // + apple[0] + apple[1]
@@ -195,6 +197,7 @@ function changeSnake(snake, button) {
 
 
 function changeApple() {
+    // random new position
     appleX = Math.floor(Math.random() * 25) + 1;
     appleY = Math.floor(Math.random() * 25) + 1;
 
@@ -253,7 +256,8 @@ function setSnake(snake, button) {
 
 
 
-
+// when apple's position is randomed, there'is a chance it will apper "inside" snake
+// Gotta check this and return true or false
 function verify_If_Apple_Is_In_Snake() {
     isInSnake = false;
 
@@ -275,7 +279,7 @@ function setApple(apple) {
     try {
         $("#" + coordinateID).attr("class", coordinateID + " apple")
     } catch (e) {
-        console.log("deu erro na hora")
+       
     }
 }
 
@@ -300,6 +304,7 @@ var snake = {
 $(document).ready(function() {
     setSnake(snake, button)
 });
+
 
 // set apple when  load  page
 apple = [14, 8]
