@@ -2,9 +2,40 @@
 
 // functions 
 // TODO implementar save score  and showScore()
-function saveScore() {}
+function save_Best_Score() {
+    let save = false
+    let bestScoreSaved = localStorage.getItem("snake_Best_Score")
+    console.log(bestScoreSaved)
+    if( bestScoreSaved == null){
+        localStorage.setItem("snake_Best_Score",window.size)
+        console.log("é nulo")
+        save =  true
+    }else if (window.size > bestScoreSaved){
+        console.log("é maior")
+        console.log("irá redefinir")
+        localStorage.setItem("snake_Best_Score",window.size)
+        save = true
+    }else {
+        console.log("nao é maior . irá manter ")
 
-function showScore() {}
+    }
+    return save;
+
+}
+
+function show_Score() {
+    if(save_Best_Score()){
+        console.log("New Record")
+        console.log("your score is " + window.size)
+    } else {
+        console.log("your Score: " + window.size)
+        console.log("Record: " + localStorage.getItem("snake_Best_Score"))
+ 
+    }
+
+}
+
+
 
 // TODO implementar funcao para reiniciar o jogo
 function restartGame() {
@@ -37,6 +68,7 @@ function loseGame() {
     console.log("you lost the game")
     $("#alert").text("You lost")
     $("#alert").show()
+    show_Score();
 }
 
 
@@ -69,7 +101,7 @@ function runGame() {
 function eatApple(eat) {
     if (eat) {
         score += 1;
-        size += 1;
+        window.size += 1;
         // qtdEaten += 1;
         changeApple()
         addVertebra()
@@ -320,11 +352,12 @@ $(document).ready(function() {
 
 
 var score = 0;
-var size = 0;
+var size = 1;
 var qtdEaten = 0;
 button = "a"
 direction = 'horizontal'
 paused = true;
+endGame = false;
 
 
 
