@@ -6,16 +6,16 @@ function save_Best_Score() {
     let save = false
     let bestScoreSaved = localStorage.getItem("snake_Best_Score")
     console.log(bestScoreSaved)
-    if( bestScoreSaved == null){
-        localStorage.setItem("snake_Best_Score",window.size)
+    if (bestScoreSaved == null) {
+        localStorage.setItem("snake_Best_Score", window.size)
         console.log("é nulo")
-        save =  true
-    }else if (window.size > bestScoreSaved){
+        save = true
+    } else if (window.size > bestScoreSaved) {
         console.log("é maior")
         console.log("irá redefinir")
-        localStorage.setItem("snake_Best_Score",window.size)
+        localStorage.setItem("snake_Best_Score", window.size)
         save = true
-    }else {
+    } else {
         console.log("nao é maior . irá manter ")
 
     }
@@ -24,14 +24,35 @@ function save_Best_Score() {
 }
 
 function show_Score() {
-    if(save_Best_Score()){
+
+    // $("#getKey").hide();
+    console.log("show score ta indo")
+    $("#getKey").css('z-index', 2000);
+    $("#alert").css('z-index', 4000);
+
+    if (save_Best_Score()) {
         console.log("New Record")
         console.log("your score is " + window.size)
+
+        $("#alert").text("")
+        $("#alert").append("<h2> New Record </h2>")
+        $("#alert").append("your score is " + window.size)
+        $("#alert").append("<button onclick='restartGame()'>restart</button>")
+
+
     } else {
         console.log("your Score: " + window.size)
         console.log("Record: " + localStorage.getItem("snake_Best_Score"))
- 
+        $("#alert").text("")
+        $("#alert").append("<h2> New Record </h2>")
+        let p = "<p>your score: " + window.size + "<br>"
+        p += "Your record: " + localStorage.getItem("snake_Best_Score") + "</p>"
+        $("#alert").append(p);
+        $("#alert").append("<button  onclick='restartGame()'>restart</button>");
+
     }
+
+
 
 }
 
@@ -39,6 +60,7 @@ function show_Score() {
 
 // TODO implementar funcao para reiniciar o jogo
 function restartGame() {
+    console.log("game will be restarted")
 
 }
 
@@ -65,6 +87,7 @@ function pauseGame() {
 
 function loseGame() {
     // TODO improve "lose game alert" on html
+    endGame = true;
     console.log("you lost the game")
     $("#alert").text("You lost")
     $("#alert").show()
@@ -136,7 +159,7 @@ function verify_If_Snake_Eat_Aple() {
     // get apple´s location
     let appleLocation = Array.from(apple)
     let headLocation = Array.from(window.snake.head)
-    // check if apple and snake's head are the same
+        // check if apple and snake's head are the same
     if (appleLocation[0] == headLocation[0] && appleLocation[1] == headLocation[1]) {
         return true
     } else {
@@ -311,7 +334,7 @@ function setApple(apple) {
     try {
         $("#" + coordinateID).attr("class", coordinateID + " apple")
     } catch (e) {
-       
+
     }
 }
 
@@ -385,7 +408,10 @@ $(document).ready(function() {
     // FOCUS:
     // IT RUNS GAME WHEN CLICKED ON THE SCREEN
     $("#getKey").focus(function() {
-        playGame()
+        if (!endGame) {
+
+            playGame()
+        }
     });
 
 
@@ -393,6 +419,9 @@ $(document).ready(function() {
     // FOCUS OUT
     // GAME IS PAUSED WHEN CLICKED OUT THE SCREEN
     $("#getKey").focusout(function() {
-        pauseGame();
+        if (!endGame) {
+
+            pauseGame();
+        }
     })
 });
