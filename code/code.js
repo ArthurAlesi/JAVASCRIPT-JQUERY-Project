@@ -60,7 +60,20 @@ function show_Score() {
 
 // TODO implementar funcao para reiniciar o jogo
 function restartGame() {
+    eraseOldSnake(window.snake)
+    eraseOldApple();
     console.log("game will be restarted")
+    var score = 0;
+    window.size = 1;
+    var qtdEaten = 0;
+    button = "a"
+    direction = 'horizontal'
+    paused = true;
+    endGame = false;
+    snake = { "head": [14, 18] }
+    apple = [14, 8]
+    setApple(apple)
+    setSnake(snake)
 
 }
 
@@ -293,7 +306,7 @@ function createBoard() {
 
 
 
-function setSnake(snake, button) {
+function setSnake(snake) {
     for (var i in snake) {
         let snakeBodyPart = ""
         if (i == "head") {
@@ -327,6 +340,8 @@ function verify_If_Apple_Is_In_Snake() {
 
 
 
+function eraseOldApple(){}
+
 function setApple(apple) {
     let coordinateID = "cell" // + apple[0] + apple[1]
     coordinateID += apple[0] < 10 ? "0" + apple[0] : apple[0]
@@ -357,7 +372,7 @@ var snake = {
 }
 
 $(document).ready(function() {
-    setSnake(snake, button)
+    setSnake(snake)
 });
 
 
