@@ -270,11 +270,12 @@ function changeApple() {
     appleY = Math.floor(Math.random() * 25) + 1;
 
     try {
-        let coordinateID = "cell" // + apple[0] + apple[1]
-        coordinateID += apple[0] < 10 ? "0" + apple[0] : apple[0]
-        coordinateID += apple[1] < 10 ? "0" + apple[1] : apple[1]
+        // let coordinateID = "cell" // + apple[0] + apple[1]
+        // coordinateID += apple[0] < 10 ? "0" + apple[0] : apple[0]
+        // coordinateID += apple[1] < 10 ? "0" + apple[1] : apple[1]
 
-        $("#" + coordinateID).attr("class", "cell")
+        // $("#" + coordinateID).attr("class", "cell")
+        eraseOldApple();
     } catch (e) {}
 
     window.apple = [appleX, appleY]
@@ -340,7 +341,14 @@ function verify_If_Apple_Is_In_Snake() {
 
 
 
-function eraseOldApple(){}
+function eraseOldApple(){
+    let coordinateID = "cell" // + apple[0] + apple[1]
+    coordinateID += apple[0] < 10 ? "0" + apple[0] : apple[0]
+    coordinateID += apple[1] < 10 ? "0" + apple[1] : apple[1]
+
+    $("#" + coordinateID).attr("class", "cell")
+
+}
 
 function setApple(apple) {
     let coordinateID = "cell" // + apple[0] + apple[1]
